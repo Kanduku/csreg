@@ -34,7 +34,7 @@ function SignupForm() {
    
 
     try {
-      await axios.post('/api/signup', data);
+      await axios.post('https://csreg-4.onrender.com/api/signup', data);
       navigate('/login');
     } catch (error) {
       console.error('There was an error!', error);

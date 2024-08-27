@@ -47,7 +47,7 @@ function Dashboard() {
     });
 
     try {
-      await axios.post('/api/submit-details', formData, {
+      await axios.post('https://csreg-4.onrender.com/api/submit-details', formData, {
         headers: {
           Authorization: token,
           'Content-Type': 'multipart/form-data',

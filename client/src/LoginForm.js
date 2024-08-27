@@ -22,7 +22,7 @@ function LoginForm() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/api/login', formData);
+      const response = await axios.post('https://csreg-4.onrender.com/api/login', formData);
       localStorage.setItem('token', response.data.token);
       navigate('/dashboard');
     } catch (error) {

@@ -1,0 +1,50 @@
+/* Success.css */
+.success-container {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 30px;
+    background: #eafaf1;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .success-header {
+    margin-bottom: 20px;
+    
+  }
+  
+  .success-header h1 {
+    font-size: 2.5em;
+    color: #28a745;
+  }
+  
+  .success-message {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .success-actions a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  
+  .success-actions a:hover {
+    background: #0056b3;
+  }
+  button{
+    padding: 10px 20px;
+   margin: 20px;
+   border-radius: 35px;
+    
+  }
+  h2,p{
+    padding: 10px 0px;
+  }

@@ -1,13 +1,17 @@
 {
   "name": "yourhr-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend for YourHR application",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "build": "echo 'No build process defined for backend'",
+
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["HR", "backend", "nodejs"],
+  "author": "Your Name",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -16,5 +20,8 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.5.4",
     "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }

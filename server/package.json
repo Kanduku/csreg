@@ -1,12 +1,12 @@
 {
-  "name": "yourhr-backend",
+  "name": "server",
   "version": "1.0.0",
   "description": "Backend for YourHR application",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "prestart": "npm install",
     "build": "echo 'No build process defined for backend'",
-
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

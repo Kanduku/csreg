@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function LoginForm() {
   const [formData, setFormData] = useState({
@@ -8,6 +8,7 @@ function LoginForm() {
     password: '',
   });
 
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -23,10 +24,17 @@ function LoginForm() {
 
     try {
       const response = await axios.post('https://csreg-4.onrender.com/api/login', formData);
-      localStorage.setItem('token', response.data.token);
-      navigate('/dashboard');
+      if (response.data.success) {
+        // Store token in local storage
+        localStorage.setItem('token', response.data.token);
+        // Navigate to dashboard upon successful login
+        navigate('/dashboard');
+      } else {
+        setErrorMessage('Login failed. Please check your credentials.');
+      }
     } catch (error) {
       console.error('There was an error!', error);
+      setErrorMessage('Login failed. Please try again.');
     }
   };
 
@@ -41,6 +49,10 @@ function LoginForm() {
         <input type="password" name="password" value={formData.password} onChange={handleChange} required />
       </div>
       <button type="submit">Login</button>
+      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+      <div>
+        <p>Don't have an account? <Link to='/signup'>Sign up</Link></p>
+      </div>
     </form>
   );
 }

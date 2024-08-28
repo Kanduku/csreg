@@ -9,9 +9,9 @@ function SignupForm() {
     email: '',
     phone: '',
     password: '',
-   
   });
 
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -22,22 +22,24 @@ function SignupForm() {
     });
   };
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = new FormData();
-    data.append('name', formData.name);
-    data.append('email', formData.email);
-    data.append('phone', formData.phone);
-    data.append('password', formData.password);
-   
 
     try {
-      await axios.post('https://csreg-4.onrender.com/api/signup', data);
-      navigate('/login');
+      // Send data to the server
+      const response = await axios.post('https://csreg-4.onrender.com/api/signup', formData);
+      
+      if (response.data.success) {
+        // Store data in local storage
+        localStorage.setItem('signupData', JSON.stringify(formData));
+        // Navigate to the login page upon successful signup
+        navigate('/login');
+      } else {
+        setErrorMessage('Sign-up failed. Please try again.');
+      }
     } catch (error) {
       console.error('There was an error!', error);
+      setErrorMessage('Sign-up failed. Please try again.');
     }
   };
 
@@ -61,6 +63,7 @@ function SignupForm() {
       </div>
     
       <button type="submit">Sign Up</button>
+      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
     </form>
   );
 }

@@ -14,7 +14,7 @@ function App() {
         <h1>YourHR - Job Search Service</h1>
         <Routes>
           <Route path="/" element={<LoginForm />} />
-          <Route path="/login" element={<SignupForm /> } />
+          <Route path="/Signup" element={<SignupForm /> } />
           <Route path="/confirmation" element={<ConfirmationPage />} />
           <Route
             path="/dashboard"
